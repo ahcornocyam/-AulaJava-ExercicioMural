@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<head>
+	<title>Mural de recados</title>
+</head> 
+<h:body>
+	<div>
+		<div>
+			<h1>Mural de recados</h1>
+		</div>
+		<div>
+			<h:form>
+				<div>
+					<h:outputLabel value="Digite seu nome:" />
+					<h:inputText value="#{recadosBean.usuario.nome}" />
+				</div>
+				<div>
+					<h:outputLabel value="Escreva seu recado" />
+					<h:inputTextarea value="#{recadosBean.usuario.recado}" />
+				</div>
+				<div>
+					<h:commandButton action="#{recadosBean.registraRecado()}" value="registrar" />
+				</div>
+			</h:form>
+		</div>
+		<div>
+			<h:dataTable value="#{recadosBean.recados}" var="item" width="100%">
+				<h:column>
+					<h:outputText value="#{item.nome}" />
+				</h:column>
+				<h:column>
+					<h:outputText value="#{item.recado}" />
+				</h:column>
+			</h:dataTable>
+		</div>		
+	</div>
+</h:body> 
+</html>
